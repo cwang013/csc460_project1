@@ -1,3 +1,3 @@
-include ../common/common.mak
+include ../common/common.mk
 
 #OBJECTS += something.o
