@@ -16,7 +16,7 @@
 DEVICE     = atmega2560
 CLOCK      = 8000000
 PROGRAMMER = -c jtagmkII -P usb
-OBJECTS    = main.o
+OBJECTS    = $(PROJECT_NAME).o
 
 
 # Tune the lines below only if you know what you are doing:
@@ -25,7 +25,7 @@ AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
 COMPILE = avr-gcc -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
 
 # symbolic targets:
-all: main.hex
+all: $(PROJECT_NAME).hex
 
 .c.o:
 	$(COMPILE) -c $< -o $@
@@ -34,21 +34,21 @@ all: main.hex
 	$(COMPILE) -S $< -o $@
 
 flash: all
-	$(AVRDUDE) -U flash:w:main.hex:i
+	$(AVRDUDE) -U flash:w:$(PROJECT_NAME).hex:i
 
 clean:
-	rm -f main.hex main.elf $(OBJECTS)
+	rm -f $(PROJECT_NAME).hex $(PROJECT_NAME).elf $(OBJECTS)
 
 # file targets:
-main.elf: $(OBJECTS)
-	$(COMPILE) -o main.elf $(OBJECTS)
+$(PROJECT_NAME).elf: $(OBJECTS)
+	$(COMPILE) -o $(PROJECT_NAME).elf $(OBJECTS)
 
-main.hex: main.elf
-	rm -f main.hex
-	avr-objcopy -j .text -j .data -O ihex main.elf main.hex
+$(PROJECT_NAME).hex: $(PROJECT_NAME).elf
+	rm -f $(PROJECT_NAME).hex
+	avr-objcopy -j .text -j .data -O ihex $(PROJECT_NAME).elf $(PROJECT_NAME).hex
 # If you have an EEPROM section, you must also create a hex file for the
 # EEPROM and add it to the "flash" target.
 
 # Targets for code debugging and analysis:
-disasm: main.elf
-	avr-objdump -d main.elf
+disasm: $(PROJECT_NAME).elf
+	avr-objdump -d $(PROJECT_NAME).elf
