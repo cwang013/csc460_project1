@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "usage: scripts/create-project project_name"
+    exit 1
+fi
+
+if [ ! -d common ]; then
+    echo "ERROR: projects must be created in the same directory as the common directory"
+    exit 1
+fi
