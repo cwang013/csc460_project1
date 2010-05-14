@@ -1,16 +1,15 @@
-/* Name: main.c
- * Author: <insert your name here>
- * Copyright: <insert your copyright message here>
- * License: <insert your license reference here>
- */
-
 #include <avr/io.h>
+#include <util/delay.h>
 
 int main(void)
 {
-    /* insert your hardware initialization here */
-    for(;;){
-        /* insert your main loop code here */
+    DDRB = 0xFF;
+    PORTB = 0xFF;
+
+    for (;;) {
+        PORTB = ~(_BV(PINB0) | _BV(PINB2) | _BV(PINB4) | _BV(PINB6));
+        _delay_ms(500);
+        PORTB = 0xFF;
+        _delay_ms(500);
     }
-    return 0;   /* never reached */
 }
