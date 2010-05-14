@@ -13,6 +13,8 @@
 #                uploading to the AVR and the interface where this hardware
 #                is connected.
 
+PROJECT_NAME = $(notdir $(abspath .))
+
 DEVICE     = atmega2560
 CLOCK      = 8000000
 PROGRAMMER = -c jtagmkII -P usb
