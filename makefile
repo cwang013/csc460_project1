@@ -1,10 +1,3 @@
-# Name: makefile
-# Author: <insert your name here>
-# Copyright: <insert your copyright message here>
-# License: <insert your license reference here>
-
-# This is a prototype Makefile. Modify it according to your needs.
-# You should at least check the settings for
 # DEVICE ....... The AVR device you compile for
 # CLOCK ........ Target AVR clock rate in Hertz
 # OBJECTS ...... The object files created from your source files. This list is
@@ -59,6 +52,3 @@ main.hex: main.elf
 # Targets for code debugging and analysis:
 disasm: main.elf
 	avr-objdump -d main.elf
-
-cpp:
-	$(COMPILE) -E main.c
