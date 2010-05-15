@@ -18,16 +18,23 @@ PROJECT_NAME = $(notdir $(abspath .))
 DEVICE     = atmega2560
 CLOCK      = 8000000
 PROGRAMMER = -c jtagmkII -P usb
-OBJECTS    = $(PROJECT_NAME).o
 
+OBJECTS += $(PROJECT_NAME).o
+
+vpath %.c ../common
+vpath %.h ../common
 
 # Tune the lines below only if you know what you are doing:
 
 AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
+COMPILE = avr-gcc -Wall -I../common -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
 
 # symbolic targets:
 all: $(PROJECT_NAME).hex
+
+ifdef COMMON_MODULES
+include $(addprefix ../common/,$(COMMON_MODULES:=.mk))
+endif
 
 .c.o:
 	$(COMPILE) -c $< -o $@
