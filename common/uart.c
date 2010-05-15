@@ -6,6 +6,8 @@
  Global Variables:
  Variables appearing in both ISR/Main are defined as 'volatile'.
 */
+volatile uint8_t uart_rx; // Flag to indicate uart received a byte
+
 static volatile int rxn; // buffer 'element' counter.
 static volatile char rx[UART_BUFFER_SIZE]; // buffer of 'char'.
 

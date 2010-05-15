@@ -11,9 +11,9 @@ typedef enum _uart_bps
         UART_DEFAULT,
 } UART_BPS;
 
-#define UART_BUFFER_SIZE 100			// size of Rx ring buffer.
+#define UART_BUFFER_SIZE 100            // size of Rx ring buffer.
 
-volatile uint8_t uart_rx; 		// Flag to indicate uart received a byte
+extern volatile uint8_t uart_rx;        // Flag to indicate uart received a byte
 
 void uart_init(UART_BPS bitrate);
 void uart_putchar(char c);
