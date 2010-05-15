@@ -10,9 +10,14 @@ if [ ! -d common ]; then
     exit 1
 fi
 
-# TODO: ensure that project_name matches /[a-z_]+/ (maybe using sed)
-
 PROJECT_NAME=$1
+
+# check that project name matches the regex /^[a-z][a-z0-9_]*$/
+if [ ! `echo $PROJECT_NAME | sed -n -e '/^[a-z][a-z0-9_]*$/p'` ]; then
+    echo "ERROR: project names must start with a lowercase letter, and can only"
+    echo "       contain lowercase letters, numbers, and underscores"
+    exit 1
+fi
 
 if [ -a $PROJECT_NAME ]; then
     echo "ERROR: $PROJECT_NAME already exists"
