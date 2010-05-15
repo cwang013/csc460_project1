@@ -6,6 +6,7 @@
  */
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <stdio.h>
 #include "uart.h"
 #include "sonar.h"
 
@@ -13,8 +14,6 @@
 
 volatile uint8_t rxflag = 0;
 volatile float distance = 0;
-
-radiopacket_t packet;
 
 void print(uint8_t* output)
 {
@@ -45,7 +44,7 @@ int main()
 
 	for (;;)
 	{
-		sonar_trigger(SONAR1);
+		sonar_trigger();
 		_delay_ms(36);
 		if (sonar_echo_received() == 1) {
 			distance = 0.0171 * sonar_get_distance() -  0.8192;
