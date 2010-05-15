@@ -41,7 +41,7 @@ flash: all
 	$(AVRDUDE) -U flash:w:$(PROJECT_NAME).hex:i
 
 clean:
-	rm -f $(PROJECT_NAME).hex $(PROJECT_NAME).elf $(OBJECTS)
+	rm -f *.hex *.elf *.o
 
 # file targets:
 $(PROJECT_NAME).elf: $(OBJECTS)
