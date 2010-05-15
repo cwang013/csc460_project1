@@ -11,6 +11,15 @@ Syntax of `README.md`
 Project Layout
 --------------
 
-Each OS is located in its own directory under the root directory (e.g. 
-`led_blink`). Each OS has its own makefile, which includes `common/common.mk`. 
-The OS must place its main function in a file named main.c.
+To create a new project (i.e. a new OS), run `scripts/create-project` in the top level directory (on a unix machine):
+
+    scripts/create-project my_project
+
+The above example would create a directory name `my_project`, populated with 3 files:
+
+*   `my_project.aps` <- an AVR Studio 4 project
+*   `my_project.c` <- a C file containing the `main()` function
+*   `makefile` <- a makefile which works with both the command-line and AVR Studio
+
+Note that the generate `.aps` file is simply an XML file copied from a fresh AVR Studio
+project that has been set up to use an external makefile instead of the default build system.
