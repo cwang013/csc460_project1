@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <AVRStudio>
   <MANAGEMENT>
-    <ProjectName>led_blink</ProjectName>
+    <ProjectName>__project_name</ProjectName>
     <Created>14-May-2010 13:33:59</Created>
     <LastEdit>14-May-2010 14:52:32</LastEdit>
     <ICON>241</ICON>
@@ -68,9 +68,9 @@
   </Debugger>
   <AVRGCCPLUGIN>
     <FILES>
-      <SOURCEFILE>led_blink.c</SOURCEFILE>
-      <OTHERFILE>default\led_blink.lss</OTHERFILE>
-      <OTHERFILE>default\led_blink.map</OTHERFILE>
+      <SOURCEFILE>__project_name.c</SOURCEFILE>
+      <OTHERFILE>default\__project_name.lss</OTHERFILE>
+      <OTHERFILE>default\__project_name.map</OTHERFILE>
       <OTHERFILE>makefile</OTHERFILE>
     </FILES>
     <CONFIGS>
@@ -82,7 +82,7 @@
         <HEX>1</HEX>
         <LIST>1</LIST>
         <MAP>1</MAP>
-        <OUTPUTFILENAME>led_blink.elf</OUTPUTFILENAME>
+        <OUTPUTFILENAME>__project_name.elf</OUTPUTFILENAME>
         <OUTPUTDIR>default\</OUTPUTDIR>
         <ISDIRTY>1</ISDIRTY>
         <OPTIONS/>
@@ -102,7 +102,7 @@
   </AVRGCCPLUGIN>
   <ProjectFiles>
     <Files>
-      <Name>led_blink.c</Name>
+      <Name>__project_name.c</Name>
     </Files>
   </ProjectFiles>
   <IOView>
@@ -112,7 +112,7 @@
   <Files>
     <File00000>
       <FileId>00000</FileId>
-      <FileName>led_blink.c</FileName>
+      <FileName>__project_name.c</FileName>
       <Status>1</Status>
     </File00000>
   </Files>

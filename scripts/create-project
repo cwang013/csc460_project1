@@ -9,3 +9,17 @@ if [ ! -d common ]; then
     echo "ERROR: projects must be created in the same directory as the common directory"
     exit 1
 fi
+
+# TODO: ensure that project_name matches /[a-z_]+/ (maybe using sed)
+
+PROJECT_NAME=$1
+
+if [ -a $PROJECT_NAME ]; then
+    echo "ERROR: $PROJECT_NAME already exists"
+    exit 1
+fi
+
+mkdir $PROJECT_NAME
+cp scripts/_create-project/makefile $PROJECT_NAME
+cp scripts/_create-project/template.c $PROJECT_NAME/$PROJECT_NAME.c
+sed "s/__project_name/$PROJECT_NAME/g" scripts/_create-project/template.aps > $PROJECT_NAME/$PROJECT_NAME.aps
