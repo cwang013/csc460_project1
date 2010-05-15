@@ -9,17 +9,17 @@ PROGRAMMER = -c jtagmkII -P usb
 
 OBJECTS = $(PROJECT_NAME).o
 
-vpath %.c ../common
-vpath %.h ../common
-
 AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
 COMPILE = avr-gcc -Wall -I../common -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
 
 .PHONY: all
 all: $(PROJECT_NAME).hex
 
-# For each FOO in COMMON_MODULES, include ../common/FOO.mk
 ifdef COMMON_MODULES
+# Add common directory to search path for *.[ch] files.
+vpath %.c ../common
+vpath %.h ../common
+# Include ../common/FOO.mk for each FOO in COMMON_MODULES.
 include $(addprefix ../common/,$(COMMON_MODULES:=.mk))
 endif
 
