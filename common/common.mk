@@ -1,9 +1,4 @@
-# TODO: base this makefile on http://www.slac.stanford.edu/comp/unix/gnu-info/make_2.html#SEC9
-# and my ooc makefile.
-
-# TODO: have a "common" directory for source that's common to all OSes, and one directory
-# for each OS. Ech OS directory should have it's own makefile. These makefiles could include
-# several common .mk files. All the general rules and variables should go in common/common.mk.
+# The make manual: http://www.gnu.org/software/make/manual/make.html
 
 # DEVICE ....... The AVR device you compile for
 # CLOCK ........ Target AVR clock rate in Hertz
