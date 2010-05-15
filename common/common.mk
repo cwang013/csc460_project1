@@ -23,9 +23,9 @@ vpath %.h ../common
 include $(addprefix ../common/,$(COMMON_MODULES:=.mk))
 endif
 
-# Note that this implicit rule must come AFTER explicit rules
-# like those defined by the common modules.
-.c.o:
+# Note that this pattern rule must come AFTER static rules
+# like those defined by the common modules (e.g. uart.o).
+%.o: %.c
 	$(COMPILE) -c $< -o $@
 
 .PHONY: install
