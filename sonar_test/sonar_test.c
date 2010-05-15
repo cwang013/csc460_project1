@@ -12,8 +12,7 @@
 
 #define     clock8MHz()    CLKPR = _BV(CLKPCE); CLKPR = 0x00;
 
-volatile uint8_t rxflag = 0;
-volatile float distance = 0;
+static float distance = 0;
 
 void print(uint8_t* output)
 {
