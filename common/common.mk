@@ -2,7 +2,7 @@
 # A free book on make: http://oreilly.com/catalog/make3/book/
 
 # PROJECT_NAME is the name of the current directory.
-PROJECT_NAME = $(notdir $(CURDIR))
+PROJECT_NAME := $(notdir $(CURDIR))
 
 OBJECTS = $(PROJECT_NAME).o
 
