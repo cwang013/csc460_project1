@@ -18,7 +18,6 @@ CFLAGS = -Wall -gdwarf-2 -std=gnu99 -Os -funsigned-char -funsigned-bitfields \
 		 -fpack-struct -fshort-enums -DF_CPU=$(CLOCK)
 TARGET_ARCH = -mmcu=$(DEVICE)
 LDFLAGS = -Wall
-SHELL = /bin/bash
 
 .PHONY: all
 all: $(PROJECT_NAME).hex
