@@ -1,4 +1,7 @@
+# build products
 *.o
 *.elf
 *.hex
-*.aws # user-specific workspace settings for AVR Studio
+
+# user-specific workspace settings for AVR Studio
+*.aws
