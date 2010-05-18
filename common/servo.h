@@ -6,8 +6,8 @@
 #define SERVO_MIN_ANGLE 60
 #define SERVO_MAX_ANGLE 300
 
-void Servo_init(uint8_t pin);
-uint8_t Servo_getAngle();
-void Servo_setAngle(uint8_t angle);
+void servo_init();
+uint16_t servo_getAngle();
+void servo_setAngle(uint16_t angle);
 
 #endif
