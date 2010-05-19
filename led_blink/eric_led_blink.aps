@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<AVRStudio>
+  <MANAGEMENT>
+    <ProjectName>led_blink</ProjectName>
+    <ProjectType>0</ProjectType>
+    <Version>4</Version>
+    <Build>4, 18, 0, 670</Build>
+    <ProjectTypeName>AVR GCC</ProjectTypeName>
+  </MANAGEMENT>
+  <DEBUG_TARGET>
+    <CURRENT_TARGET>AVR Simulator</CURRENT_TARGET>
+    <CURRENT_PART>ATmega2560.xml</CURRENT_PART>
+  </DEBUG_TARGET>
+  <AVRGCCPLUGIN>
+    <FILES>
+      <SOURCEFILE>led_blink.c</SOURCEFILE>
+      <OTHERFILE>makefile</OTHERFILE>
+    </FILES>
+    <CONFIGS>
+      <CONFIG>
+        <NAME>default</NAME>
+        <USESEXTERNALMAKEFILE>YES</USESEXTERNALMAKEFILE>
+        <EXTERNALMAKEFILE>makefile</EXTERNALMAKEFILE>
+        <PART>atmega2560</PART>
+        <HEX>1</HEX>
+        <LIST>0</LIST>
+        <MAP>0</MAP>
+        <OUTPUTFILENAME>led_blink.elf</OUTPUTFILENAME>
+        <OUTPUTDIR>.</OUTPUTDIR>
+        <ISDIRTY>1</ISDIRTY>
+        <OPTIONSFORALL/>
+        <LINKEROPTIONS/>
+      </CONFIG>
+    </CONFIGS>
+    <LASTCONFIG>default</LASTCONFIG>
+    <USES_WINAVR>1</USES_WINAVR>
+  </AVRGCCPLUGIN>
+</AVRStudio>
