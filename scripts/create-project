@@ -27,4 +27,5 @@ fi
 mkdir $PROJECT_NAME
 cp scripts/_create-project/makefile $PROJECT_NAME
 cp scripts/_create-project/template.c $PROJECT_NAME/$PROJECT_NAME.c
-sed "s/__project_name/$PROJECT_NAME/g" scripts/_create-project/template.aps > $PROJECT_NAME/$PROJECT_NAME.aps
+sed "s/__project_name/$PROJECT_NAME/g" scripts/_create-project/template.aps > $PROJECT_NAME/andrew_$PROJECT_NAME.aps
+cp $PROJECT_NAME/{andrew,eric}_$PROJECT_NAME.aps
