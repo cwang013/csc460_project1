@@ -65,13 +65,15 @@ uint16_t servo_getAngle()
 void servo_setAngle(uint16_t angle)
 {
     uint8_t sreg;
+	uint16_t servoValue;
 
     if (angle < SERVO_MIN_ANGLE || angle > SERVO_MAX_ANGLE) {
         return;
     }
     _angle = angle;
-	// TODO use linear regression
-    uint16_t servoValue = 2000; // TODO calculate servoValue from angle
+	// TODO use linear interpolation
+	//pwm = 0.8 * angle + SERVO_PWM_MIN
+    servoValue = (205 * (uint16_t)angle >> 8) + SERVO_PWM_MIN;
     sreg = SREG; // save interrupts
     cli(); // clear (disable) interrupts
     OCR4B = servoValue; // set pulse width for port H, pin 4
