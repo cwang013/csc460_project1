@@ -2,6 +2,14 @@
 #include <avr/interrupt.h>
 #include "servo.h"
 
+// experimentally determined to give 0.907 ms pulse width
+#define SERVO_PWM_MIN 109
+
+// experimentally determined to give 2.096 ms pulse width
+#define SERVO_PWM_MAX 253 // experimentally determined to give 2.10 ms
+
+#define SERVO_PWM_CENTER ((SERVO_PWM_MIN + SERVO_PWM_MAX) >> 1)
+
 static uint16_t _angle = 180;
 
 
@@ -22,14 +30,14 @@ void servo_init()
      * pin for the PWM mode timer function.
      */
     // set Port H, pin 4 as output
-    DDRH |= _BV(DDH4);
+    //	DDRH |= _BV(DDH4);
+	DDRH &= ~_BV(DDH4); // turn pin H4 off to prevent bad signal wrecking servo
 
-    /*
-     * Set top to 40000 (which will be 20ms with the prescaler)
-     */
+
+	// set the frequency
     sreg = SREG; // save interrupts
     cli(); // disable interrupts
-    ICR4 = 40000;
+	ICR4 = 2425; // experimentally determined to give 50 Hz
     SREG = sreg; // restore interrupts
 
     /*
@@ -39,8 +47,10 @@ void servo_init()
      */
     sreg = SREG;
     cli();
-    OCR4B = (unsigned int)1500;
+	OCR4B = SERVO_PWM_CENTER;
     SREG = sreg;
+
+	DDRH |= _BV(DDH4); // turn pin H4 on to start outputting signal
 
     return;
 }
@@ -60,7 +70,8 @@ void servo_setAngle(uint16_t angle)
         return;
     }
     _angle = angle;
-    uint16_t servoValue = 1500; // TODO calculate servoValue from angle
+	// TODO use linear regression
+    uint16_t servoValue = 2000; // TODO calculate servoValue from angle
     sreg = SREG; // save interrupts
     cli(); // clear (disable) interrupts
     OCR4B = servoValue; // set pulse width for port H, pin 4
