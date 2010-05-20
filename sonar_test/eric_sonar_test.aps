@@ -1,38 +1,21 @@
 <?xml version="1.0"?>
 <AVRStudio>
-  <MANAGEMENT>
-    <ProjectName>sonar_test</ProjectName>
-    <ProjectType>0</ProjectType>
-    <Version>4</Version>
-    <Build>4, 18, 0, 670</Build>
-    <ProjectTypeName>AVR GCC</ProjectTypeName>
-  </MANAGEMENT>
-  <DEBUG_TARGET>
-    <CURRENT_TARGET>AVR Simulator</CURRENT_TARGET>
-    <CURRENT_PART>ATmega2560.xml</CURRENT_PART>
-  </DEBUG_TARGET>
-  <AVRGCCPLUGIN>
-    <FILES>
-      <SOURCEFILE>sonar_test.c</SOURCEFILE>
-      <OTHERFILE>makefile</OTHERFILE>
-    </FILES>
-    <CONFIGS>
-      <CONFIG>
-        <NAME>default</NAME>
-        <USESEXTERNALMAKEFILE>YES</USESEXTERNALMAKEFILE>
-        <EXTERNALMAKEFILE>makefile</EXTERNALMAKEFILE>
-        <PART>atmega2560</PART>
-        <HEX>1</HEX>
-        <LIST>0</LIST>
-        <MAP>0</MAP>
-        <OUTPUTFILENAME>sonar_test.elf</OUTPUTFILENAME>
-        <OUTPUTDIR>.</OUTPUTDIR>
-        <ISDIRTY>1</ISDIRTY>
-        <OPTIONSFORALL/>
-        <LINKEROPTIONS/>
-      </CONFIG>
-    </CONFIGS>
-    <LASTCONFIG>default</LASTCONFIG>
-    <USES_WINAVR>1</USES_WINAVR>
-  </AVRGCCPLUGIN>
-</AVRStudio>
+	<MANAGEMENT>
+		<ProjectName>sonar_test</ProjectName>
+		<ProjectType>0</ProjectType>
+		<Version>4</Version>
+		<Build>4, 18, 0, 670</Build>
+		<ProjectTypeName>AVR GCC</ProjectTypeName>
+	</MANAGEMENT>
+	<DEBUG_TARGET>
+		<CURRENT_TARGET>AVR Simulator</CURRENT_TARGET>
+		<CURRENT_PART>ATmega2560.xml</CURRENT_PART>
+		<COM></COM><COMType>0</COMType><WATCHNUM>0</WATCHNUM><WATCHNAMES><Pane0></Pane0><Pane1></Pane1><Pane2></Pane2><Pane3></Pane3></WATCHNAMES><BreakOnTrcaeFull>0</BreakOnTrcaeFull></DEBUG_TARGET>
+	<AVRGCCPLUGIN>
+		<FILES>
+			<SOURCEFILE>sonar_test.c</SOURCEFILE><SOURCEFILE>H:\CSC460\csc460_project1\common\sonar.c</SOURCEFILE><SOURCEFILE>H:\CSC460\csc460_project1\common\uart.c</SOURCEFILE><HEADERFILE>H:\CSC460\csc460_project1\common\uart.h</HEADERFILE><HEADERFILE>H:\CSC460\csc460_project1\common\sonar.h</HEADERFILE><OTHERFILE>makefile</OTHERFILE></FILES>
+		<CONFIGS>
+			<CONFIG><NAME>default</NAME><USESEXTERNALMAKEFILE>YES</USESEXTERNALMAKEFILE><EXTERNALMAKEFILE>makefile</EXTERNALMAKEFILE><PART>atmega2560</PART><HEX>1</HEX><LIST>0</LIST><MAP>0</MAP><OUTPUTFILENAME>sonar_test.elf</OUTPUTFILENAME><OUTPUTDIR>.</OUTPUTDIR><ISDIRTY>1</ISDIRTY><OPTIONS/><INCDIRS/><LIBDIRS/><LIBS/><LINKOBJECTS/><OPTIONSFORALL></OPTIONSFORALL><LINKEROPTIONS></LINKEROPTIONS><SEGMENTS/></CONFIG></CONFIGS>
+		<LASTCONFIG>default</LASTCONFIG>
+		<USES_WINAVR>1</USES_WINAVR><GCC_LOC>C:\program files\WinAVR-20090313\bin\avr-gcc.exe</GCC_LOC><MAKE_LOC>C:\program files\WinAVR-20090313\utils\bin\make.exe</MAKE_LOC></AVRGCCPLUGIN>
+	<Debugger><modules><module></module></modules><Triggers></Triggers></Debugger><ProjectFiles><Files><Name>H:\CSC460\csc460_project1\common\uart.h</Name><Name>H:\CSC460\csc460_project1\common\sonar.h</Name><Name>H:\CSC460\csc460_project1\sonar_test\sonar_test.c</Name><Name>H:\CSC460\csc460_project1\common\sonar.c</Name><Name>H:\CSC460\csc460_project1\common\uart.c</Name></Files></ProjectFiles><IOView><usergroups/><sort sorted="0" column="0" ordername="1" orderaddress="1" ordergroup="1"/></IOView><Files><File00000><FileId>00000</FileId><FileName>sonar_test.c</FileName><Status>259</Status></File00000><File00001><FileId>00001</FileId><FileName>H:\CSC460\csc460_project1\common\uart.c</FileName><Status>1</Status></File00001><File00002><FileId>00002</FileId><FileName>H:\CSC460\csc460_project1\common\uart.h</FileName><Status>1</Status></File00002></Files><Events><Bookmarks></Bookmarks></Events><Trace><Filters></Filters></Trace></AVRStudio>
