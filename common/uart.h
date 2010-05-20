@@ -4,6 +4,11 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+/*
+PE0 -> RXD
+PE1 ->TXD
+*/
+
 typedef enum _uart_bps
 {
         UART_38400,
