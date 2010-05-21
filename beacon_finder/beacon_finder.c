@@ -103,6 +103,8 @@ int main()
     Radio_Configure_Rx(RADIO_PIPE_0, remote_addr, ENABLE);
     Radio_Configure(RADIO_2MBPS, RADIO_HIGHEST_POWER);
 
+    servo_init();
+
     // enable interrupts
     sei();
 
