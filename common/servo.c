@@ -31,13 +31,13 @@ void servo_init()
      */
     // set Port H, pin 4 as output
     //	DDRH |= _BV(DDH4);
-	DDRH &= ~_BV(DDH4); // turn pin H4 off to prevent bad signal wrecking servo
+    DDRH &= ~_BV(DDH4); // turn pin H4 off to prevent bad signal wrecking servo
 
 
-	// set the frequency
+    // set the frequency
     sreg = SREG; // save interrupts
     cli(); // disable interrupts
-	ICR4 = 2425; // experimentally determined to give 50 Hz
+    ICR4 = 2425; // experimentally determined to give 50 Hz
     SREG = sreg; // restore interrupts
 
     /*
@@ -47,10 +47,10 @@ void servo_init()
      */
     sreg = SREG;
     cli();
-	OCR4B = SERVO_PWM_CENTER;
+    OCR4B = SERVO_PWM_CENTER;
     SREG = sreg;
 
-	DDRH |= _BV(DDH4); // turn pin H4 on to start outputting signal
+    DDRH |= _BV(DDH4); // turn pin H4 on to start outputting signal
 
     return;
 }
@@ -65,15 +65,15 @@ uint16_t servo_getAngle()
 void servo_setAngle(uint16_t angle)
 {
     uint8_t sreg;
-	uint16_t servoValue;
+    uint16_t servoValue;
 
     if (angle < SERVO_MIN_ANGLE || angle > SERVO_MAX_ANGLE) {
         return;
     }
     _angle = angle;
-	// TODO use linear interpolation
-	//pwm = 0.8 * angle + SERVO_PWM_MIN
-    servoValue = (205 * (uint16_t)angle >> 8) + SERVO_PWM_MIN;
+    // linear interpolation:
+    // pwm = 1.6 * angle + SERVO_PWM_MIN
+    servoValue = (205 * (uint16_t)angle >> 7) + SERVO_PWM_MIN;
     sreg = SREG; // save interrupts
     cli(); // clear (disable) interrupts
     OCR4B = servoValue; // set pulse width for port H, pin 4
