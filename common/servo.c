@@ -73,7 +73,7 @@ void servo_setAngle(uint16_t angle)
     _angle = angle;
     // linear interpolation:
     // pwm = 1.6 * angle + SERVO_PWM_MIN
-    servoValue = (205 * (uint16_t)angle >> 7) + SERVO_PWM_MIN;
+    servoValue = (205 * ((uint16_t)angle - 45) >> 7) + SERVO_PWM_MIN;
     sreg = SREG; // save interrupts
     cli(); // clear (disable) interrupts
     OCR4B = servoValue; // set pulse width for port H, pin 4
