@@ -2,15 +2,13 @@
 #include <avr/interrupt.h>
 #include "servo.h"
 
-// experimentally determined to give 0.907 ms pulse width
-#define SERVO_PWM_MIN 109
-
-// experimentally determined to give 2.096 ms pulse width
-#define SERVO_PWM_MAX 253 // experimentally determined to give 2.10 ms
-
+#define SERVO_PWM_MIN (900) // 0.9 ms
+#define SERVO_PWM_MAX 2100 // 2.1 ms
 #define SERVO_PWM_CENTER ((SERVO_PWM_MIN + SERVO_PWM_MAX) >> 1)
+#define SERVO_PWM_PERIOD 20000 // 20 ms
+#define SERVO_CONVERSION_SLOPE (((SERVO_PWM_MAX - SERVO_PWM_MIN) << 5) / (SERVO_MAX_ANGLE - SERVO_MIN_ANGLE))
 
-static uint16_t _angle = 180;
+static int16_t _angle = 0;
 
 
 void servo_init()
@@ -37,7 +35,7 @@ void servo_init()
     // set the frequency
     sreg = SREG; // save interrupts
     cli(); // disable interrupts
-    ICR4 = 2425; // experimentally determined to give 50 Hz
+    ICR4 = SERVO_PWM_PERIOD;
     SREG = sreg; // restore interrupts
 
     /*
@@ -56,26 +54,28 @@ void servo_init()
 }
 
 
-uint16_t servo_getAngle()
+int16_t servo_getAngle()
 {
     return _angle;
 }
 
 
-void servo_setAngle(uint16_t angle)
+void servo_setAngle(int16_t angle)
 {
     uint8_t sreg;
-    uint16_t servoValue;
+    uint16_t pwm;
 
     if (angle < SERVO_MIN_ANGLE || angle > SERVO_MAX_ANGLE) {
         return;
     }
     _angle = angle;
+
     // linear interpolation:
-    // pwm = 1.6 * angle + SERVO_PWM_MIN
-    servoValue = (205 * ((uint16_t)angle - 45) >> 7) + SERVO_PWM_MIN;
+    // FIXME: this doesn't work!
+    pwm = ((SERVO_CONVERSION_SLOPE * (uint16_t)(angle - SERVO_MIN_ANGLE)) >> 5) + SERVO_PWM_MIN;
+
     sreg = SREG; // save interrupts
     cli(); // clear (disable) interrupts
-    OCR4B = servoValue; // set pulse width for port H, pin 4
+    OCR4B = pwm; // set pulse width for port H, pin 4
     SREG = sreg; // restore interrupts
 }

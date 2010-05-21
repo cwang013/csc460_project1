@@ -1,3 +1,4 @@
+#include <avr/interrupt.h>
 #include <util/delay.h>
 #include "servo.h"
 
@@ -6,6 +7,11 @@ int main(void)
 {
     uint8_t angle = SERVO_MIN_ANGLE;
     uint8_t direction = 0;
+
+    // disable global system prescaler
+    // this makes the effective clock speed F_CPU
+    CLKPR = _BV(CLKPCE);
+    CLKPR = 0x00;
 
     servo_init();
 
