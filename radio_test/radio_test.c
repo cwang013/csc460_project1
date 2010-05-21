@@ -6,9 +6,9 @@
  */
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#include "uart/uart.h"
-#include "radio/radio.h"
-#include "sonar/sonar.h"
+#include "uart.h"
+#include "radio.h"
+#include "sonar.h"
 
 #define     clock8MHz()    CLKPR = _BV(CLKPCE); CLKPR = 0x00;
 
