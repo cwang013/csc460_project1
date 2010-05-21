@@ -5,3 +5,6 @@
 
 # user-specific workspace settings for AVR Studio
 *.aws
+
+# vim swap files
+*.swp
