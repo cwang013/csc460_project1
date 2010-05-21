@@ -1,4 +1,4 @@
-#COMMON_MODULES = sonar uart # this must come BEFORE the common.mk inclusion
+COMMON_MODULES = sonar servo radio uart # this must come BEFORE the common.mk inclusion
 include ../common/common.mk
 
 #OBJECTS += something.o
