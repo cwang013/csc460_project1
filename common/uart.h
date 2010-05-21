@@ -5,9 +5,10 @@
 #include <avr/interrupt.h>
 
 /*
-PE0 -> RXD
-PE1 ->TXD
-*/
+ * Wiring:
+ * PE0 -> RXD
+ * PE1 -> TXD
+ */
 
 typedef enum _uart_bps
 {
