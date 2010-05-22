@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    uint8_t angle = SERVO_MIN_ANGLE;
+    uint8_t angle = SERVO_ANGLE_MIN;
     uint8_t direction = 0;
 
     // disable global system prescaler
@@ -19,7 +19,7 @@ int main(void)
         _delay_ms(100);
         servo_setAngle(angle);
 
-        if (angle == SERVO_MIN_ANGLE || angle == SERVO_MAX_ANGLE) {
+        if (angle == SERVO_ANGLE_MIN || angle == SERVO_ANGLE_MAX) {
             direction = !direction;
         }
 

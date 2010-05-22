@@ -57,8 +57,8 @@ static uint16_t ping(radiopacket_t *packet)
 
 static uint16_t scanForBeacon(radiopacket_t *packet)
 {
-    uint8_t angle = SERVO_MIN_ANGLE;
-    uint8_t bestAngle = SERVO_MIN_ANGLE;
+    uint8_t angle = SERVO_ANGLE_MIN;
+    uint8_t bestAngle = SERVO_ANGLE_MIN;
     uint16_t shortestDistance = UINT16_MAX;
 
     servo_setAngle(angle);
@@ -73,7 +73,7 @@ static uint16_t scanForBeacon(radiopacket_t *packet)
             shortestDistance = distance;
         }
         angle += 5;
-        if (angle > SERVO_MAX_ANGLE) {
+        if (angle > SERVO_ANGLE_MAX) {
             break;
         }
         servo_setAngle(angle);

@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 
-#define SERVO_MIN_ANGLE (-45)
-#define SERVO_MAX_ANGLE 45
+#define SERVO_ANGLE_MIN (-45)
+#define SERVO_ANGLE_MAX 45
 
 void servo_init();
 int16_t servo_getAngle();

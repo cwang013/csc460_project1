@@ -6,7 +6,7 @@
 #define SERVO_PWM_MAX 2100 // 2.1 ms
 #define SERVO_PWM_CENTER ((SERVO_PWM_MIN + SERVO_PWM_MAX) >> 1)
 #define SERVO_PWM_PERIOD 20000 // 20 ms
-#define SERVO_CONVERSION_SLOPE (((SERVO_PWM_MAX - SERVO_PWM_MIN) << 8) / (SERVO_MAX_ANGLE - SERVO_MIN_ANGLE))
+#define SERVO_CONVERSION_SLOPE (((SERVO_PWM_MAX - SERVO_PWM_MIN) << 8) / (SERVO_ANGLE_MAX - SERVO_ANGLE_MIN))
 
 static int16_t _angle = 0;
 
@@ -65,13 +65,13 @@ void servo_setAngle(int16_t angle)
     uint8_t sreg;
     uint16_t pwm;
 
-    if (angle < SERVO_MIN_ANGLE || angle > SERVO_MAX_ANGLE) {
+    if (angle < SERVO_ANGLE_MIN || angle > SERVO_ANGLE_MAX) {
         return;
     }
     _angle = angle;
 
     // linear interpolation:
-    pwm = ((SERVO_CONVERSION_SLOPE * (uint16_t)(angle - SERVO_MIN_ANGLE)) >> 8) + SERVO_PWM_MIN;
+    pwm = ((SERVO_CONVERSION_SLOPE * (uint16_t)(angle - SERVO_ANGLE_MIN)) >> 8) + SERVO_PWM_MIN;
 
     sreg = SREG; // save interrupts
     cli(); // clear (disable) interrupts
