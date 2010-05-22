@@ -71,7 +71,7 @@ void servo_setAngle(int16_t angle)
     _angle = angle;
 
     // linear interpolation:
-    pwm = ((SERVO_CONVERSION_SLOPE * (uint16_t)(angle - SERVO_ANGLE_MIN)) >> 8) + SERVO_PWM_MIN;
+    pwm = ((SERVO_CONVERSION_SLOPE * (uint16_t)(angle - SERVO_MIN_ANGLE)) >> 8) + SERVO_PWM_MIN;
 
     sreg = SREG; // save interrupts
     cli(); // clear (disable) interrupts
