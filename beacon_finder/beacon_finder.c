@@ -144,7 +144,8 @@ int main()
         servo_setAngle(beaconInfo.angle);
         _delay_ms(1000); // allow servo time to rotate
 
-        distance = (uint16_t)(0.0171 * beaconInfo.pingTime - 0.8192);
+        // cm = 0.034489 * µsec - 14.989621 (linear regression on experimental data)
+        distance = (uint16_t)(0.034489 * beaconInfo.pingTime - 14.989621);
 
         snprintf((char*)output, 128, "time: %u us\n\r", beaconInfo.pingTime);
         print(output);
